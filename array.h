@@ -5,8 +5,6 @@
 #ifndef DATASTRUCTURE_ARRAY_H
 #define DATASTRUCTURE_ARRAY_H
 
-#include <algorithm>
-
 namespace cheng{
     template <typename T>
     class array
@@ -68,12 +66,13 @@ namespace cheng{
     template <typename T>
     void array<T>::_resize(unsigned int new_capacity)
     {
-        T* new_data = new T[new_capacity];
+        assert(new_capacity >= _size);
+        T* temp = new T[new_capacity];
         _capacity = new_capacity;
-        for (unsigned int i = 0; i < std::min(_size, new_capacity); ++i)
-            new_data[i] = _data[i];
+        for (unsigned int i = 0; i < _size; ++i)
+            temp[i] = _data[i];
         delete [] _data;
-        _data = new_data;
+        _data = temp;
     }
 
     template <typename T>
@@ -116,7 +115,7 @@ namespace cheng{
     {
         --_size;
         if (_size == _capacity / 4)
-            _resize(_capacity/4);
+            _resize(_capacity/2);
     }
 
     template <typename T>
@@ -128,7 +127,7 @@ namespace cheng{
         }
         --_size;
         if (_size == _capacity / 4)
-            _resize(_capacity/4);
+            _resize(_capacity/2);
     }
 
     template <typename T>

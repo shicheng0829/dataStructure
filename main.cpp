@@ -30,7 +30,7 @@ int main()
     arr.my_delete(2);
     print_arr(arr);
     std::cout << arr.capacity() << std::endl;
-    for (int i = 0 ; i < 7; ++i)
+    for (int i = 0 ; i < 6; ++i)
         arr.pop();
     print_arr(arr);
     std::cout << arr.capacity() << std::endl;
