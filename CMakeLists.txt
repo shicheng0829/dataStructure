@@ -3,4 +3,4 @@ project(dataStructure)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(dataStructure main.cpp array.h stack.h queue.h heap.h algorithm.h BST.h)
+add_executable(dataStructure main.cpp array.h stack.h queue.h heap.h algorithm.h BST.h union_find.h list.h)

@@ -33,9 +33,9 @@ namespace cheng{
     template <typename T>
     array<T>::array()
     {
-        _data = nullptr;
+        _data = new T[1];
         _size = 0;
-        _capacity = 0;
+        _capacity = 1;
     }
     template <typename T>
     array<T>::array(unsigned int n)
