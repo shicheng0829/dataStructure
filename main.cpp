@@ -3,6 +3,7 @@
 #include "list.h"
 #include "heap.h"
 #include "queue.h"
+#include "union_find.h"
 
 void print_arr(cheng::array<int> arr)
 {
@@ -143,5 +144,11 @@ int main()
         arr_q.print();
     }
 
+    std::cout << "start union find test" << std::endl;
+    cheng::union_find uf(10);
+    uf.connect(0, 5);
+    std::cout << uf.connected(0,5) << std::endl;
+    std::cout << uf.connected(0,4) << std::endl;
+    std::cout << uf.count() << std::endl;
     return 0;
 }
