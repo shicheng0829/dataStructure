@@ -1,6 +1,8 @@
 #include <iostream>
 #include "array.h"
 #include "list.h"
+#include "heap.h"
+#include "queue.h"
 
 void print_arr(cheng::array<int> arr)
 {
@@ -111,6 +113,35 @@ int main()
 
     std::cout << lst.value_n_from_end(2) << std::endl;
 
+    std::cout << "start heap test" << std::endl;
+    std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    cheng::heap<int> hp(vec);
+//    for (int i = 0; i < 10; ++i)
+//        hp.insert(i);
+    std::cout << hp.get_max() << std::endl;
+    hp.print();
+    hp.del_max();
+    std::cout << hp.get_max() << std::endl;
+    hp.print();
+
+    std::cout << "start list_queue test" << std::endl;
+    cheng::list_queue<int> lst_q;
+    for (int i = 0; i < 5; ++i)
+        lst_q.enqueue(i);
+    lst_q.print();
+    std::cout << lst_q.dequeue() << std::endl;
+    lst_q.print();
+
+    std::cout << "start arr_queue test" << std::endl;
+    cheng::arr_queue<int> arr_q;
+    for (int i = 0; i < 5; ++i)
+        arr_q.enqueue(i);
+    arr_q.print();
+    for (int i = 0; i < 5; ++i)
+    {
+        std::cout << arr_q.dequeue() << std::endl;
+        arr_q.print();
+    }
 
     return 0;
 }
