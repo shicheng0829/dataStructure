@@ -4,8 +4,9 @@
 #include "heap.h"
 #include "queue.h"
 #include "union_find.h"
+#include "algorithm.h"
 
-void print_arr(cheng::array<int> arr)
+void print_arr(cheng::array<int>& arr)
 {
     for (unsigned int i = 0; i < arr.size(); ++i)
     {
@@ -14,11 +15,20 @@ void print_arr(cheng::array<int> arr)
     std::cout << std::endl;
 }
 
-void print_lst(cheng::list<int> lst)
+void print_lst(cheng::list<int>& lst)
 {
     for (unsigned int i = 0; i < lst.size(); ++i)
     {
         std::cout << lst.value_at(i) << " ";
+    }
+    std::cout << std::endl;
+}
+
+void print_vec(std::vector<int>& vec)
+{
+    for (unsigned int i = 0; i < vec.size(); ++i)
+    {
+        std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
 }
@@ -150,5 +160,40 @@ int main()
     std::cout << uf.connected(0,5) << std::endl;
     std::cout << uf.connected(0,4) << std::endl;
     std::cout << uf.count() << std::endl;
+
+    vec = {1, 2, 3, 3, 3, 4, 5};
+    std::cout << cheng::my_lower_bound(vec, 3) << std::endl;
+    std::cout << cheng::my_upper_bound(vec, 3) << std::endl;
+
+    std::cout << "bubble_sort" << std::endl;
+    std::vector<int> vec2 = {3, 4, 2, 1, 5, 5, 9, -1};
+    cheng::bubble_sort(vec2);
+    print_vec(vec2);
+
+    std::cout << "select_sort" << std::endl;
+    vec2 = {3, 4, 2, 1, 5, 5, 9, -1};
+    cheng::select_sort(vec2);
+    print_vec(vec2);
+
+    std::cout << "insert_sort" << std::endl;
+    vec2 = {3, 4, 2, 1, 5, 5, 9, -1};
+    cheng::insert_sort(vec2);
+    print_vec(vec2);
+
+    std::cout << "quick_sort" << std::endl;
+    vec2 = {3, 4, 2, 1, 5, 5, 9, -1};
+    cheng::quick_sort1(vec2,0, vec2.size()-1);
+    print_vec(vec2);
+
+    std::cout << "quick_sort_3way" << std::endl;
+    vec2 = {3, 4, 2, 1, 5, 5, 9, -1};
+    cheng::quick_sort2(vec2,0, vec2.size()-1);
+    print_vec(vec2);
+
+    std::cout << "merge_sort" << std::endl;
+    vec2 = {3, 4, 2, 1, 5, 5, 9, -1};
+    cheng::merge_sort(vec2,0, vec2.size()-1);
+    print_vec(vec2);
+
     return 0;
 }
